@@ -7,7 +7,7 @@ public class Call {
     private final Integer duration;
     private CallStatus status;
 
-    private Random randomDuration = new Random();
+    private final Random randomDuration = new Random();
     private static final Integer MIN_DURATION = 5000;
     private static final Integer MAX_DURATION = 10000;
 

@@ -13,7 +13,7 @@ public class Dispatcher {
     private List<Employee> employees = new ArrayList<>();
     private Queue<Call> waitingCallsQueue = new LinkedList<>();
 
-    ExecutorService executor = Executors.newFixedThreadPool(10);
+    private ExecutorService executor = Executors.newFixedThreadPool(10);
 
     // if employee is available it handles call otherwise call is put in a queue to avoid loosing them
     public void dispatchCall(Call call) {
@@ -30,7 +30,7 @@ public class Dispatcher {
         });
     }
 
-    // Waits for threads to end
+    // Waits up to 25 seconds for threads to end
     public void waitTermination() throws InterruptedException {
         executor.shutdown();
         executor.awaitTermination(25L, TimeUnit.SECONDS);
